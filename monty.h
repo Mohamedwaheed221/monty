@@ -2,9 +2,10 @@
 #define MONTY_H
 
 /*prototypes*/
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -38,4 +39,7 @@ typedef struct instruction_s
 
 void push(stack_t **stack, unsigned int line_number, int n);
 void pall(stack_t **stack, unsigned int line_number);
+void read_file(FILE *file);
+void open_file(char *file_name);
+
 #endif

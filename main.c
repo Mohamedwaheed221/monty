@@ -1,14 +1,20 @@
 #include "monty.h"
 
 /**
+ * main - main function
  *
+ * @argc: no. of arguments
+ * @argv: argument vector
+ * Return: (0) success
  */
-int main(void)
+int main(int argc, char *argv[])
 {
-	stack_t *stack = NULL;
-	push(&stack, 1, 3);
-	push(&stack, 2, 5);
-	pall(&stack, 3);
+	if (argc != 2)
+	{
+		fprintf(stderr, "Monty");
+		exit(EXIT_FAILURE);
+	}
+	open_file(argv[1]);
 
-	return 0;
+	return (0);
 }
