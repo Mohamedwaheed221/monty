@@ -25,12 +25,12 @@ void open_file(char *file_name)
 void read_file(FILE *file)
 {
 	int number = 0;
-	char *buffer = NULL;
-	size_t length = 0;
+	char buffer[1024];
 	char *token;
 
-	for (number = 1; getline(&buffer, &length, file) != -1; number++)
+	while (fgets(buffer, sizeof(buffer), file) != NULL)
 	{
+		number++;
 		token = strtok(buffer, " ");
 		while (token != NULL)
 		{
@@ -38,5 +38,4 @@ void read_file(FILE *file)
 			token = strtok(NULL, " ");
 		}
 	}
-	free(buffer);
 }
