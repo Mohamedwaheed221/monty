@@ -6,7 +6,7 @@
  * @line_number: numbers of element enter
  * @n: integer
  */
-void push(stack_t **stack, unsigned int line_number, inr n)
+void push(stack_t **stack, unsigned int line_number, int n)
 {
 	stack_t *node = malloc(sizeof(stack_t));
 	if (!node)
@@ -32,7 +32,10 @@ void push(stack_t **stack, unsigned int line_number, inr n)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t temp = *stack;
+	
+	stack_t *temp;
+       	temp = *stack;
+	(void)line_number;
 	while(temp)
 	{
 		printf("%d\n", temp->n);
