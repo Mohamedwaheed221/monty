@@ -4,21 +4,20 @@
  * push - function to push the element in the stack
  * @stack: linked list to the stack
  */
-void push(stack_t **stack)
+void push(stack_t **node)
 {
 	stack_t *temp;
 
-	if (stack == NULL || *stack == NULL)
-	{
+	if (node == NULL || *node == NULL)
 		exit(EXIT_FAILURE);
-	}
+
 	if (head == NULL)
 	{
-		head = *stack;
+		head = *node;
 		return;
 	}
 	temp = head;
-	head = *stack;
+	head = *node;
 	head->next = temp;
 	temp->prev = head;
 }
