@@ -41,9 +41,10 @@ typedef struct instruction_s
 
 extern stack_t *head;
 
-void push(stack_t **node);
-void pall(stack_t **stack);
+void push(stack_t **node, unsigned int l_number);
+void pall(stack_t **stack, unsigned int l_number);
 void read_file(FILE *file);
 void open_file(char *file_name);
-
+stack_t *create_stack(int n);
+void pint(stack_t **stack, unsigned int l_number);
 #endif

@@ -10,9 +10,8 @@ void open_file(char *file_name)
 	FILE *file = fopen(file_name, "r");
 
 	if (file_name == NULL || file == NULL)
-	{
-		printf("Error opening the file....\n");
-	}
+		fprintf(stderr, "can't open the file\n");
+
 	read_file(file);
 	fclose(file);
 }
