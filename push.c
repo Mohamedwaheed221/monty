@@ -3,41 +3,39 @@
 /**
  * push - function to push the element in the stack
  * @stack: linked list to the stack
- * @line_number: numbers of element enter
- * @n: integer
  */
-void push(stack_t **stack, unsigned int line_number, int n)
+void push(stack_t **node)
 {
-	stack_t *node = malloc(sizeof(stack_t));
+	stack_t *temp;
 
-	if (!node)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+	if (node == NULL || *node == NULL)
 		exit(EXIT_FAILURE);
-	}
-	node->n = n;
-	node->prev = NULL;
-	node->next = *stack;
 
-	if (*stack)
+	if (head == NULL)
 	{
-		(*stack)->prev = node;
+		head = *node;
+		return;
 	}
-	*stack = node;
+	temp = head;
+	head = *node;
+	head->next = temp;
+	temp->prev = head;
 }
 
 /**
  * pall - function to print the oushed item
  * @stack: pointer to the linked list
- * @line_number: numbers of element enter
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack)
 {
 	stack_t *temp;
 
+	if (stack == NULL)
+	{
+		exit(EXIT_FAILURE);
+	}
 	temp = *stack;
 
-	(void)line_number;
 	while (temp)
 	{
 		printf("%d\n", temp->n);
